@@ -19,7 +19,7 @@ public class GuessBirthday {
 		String set3 = 
 				" 4 5 6 7\n"
 				+ "12 13 14 15\n"
-				+ "20 21 22 22\n"
+				+ "20 21 22 23\n"
 				+ "28 29 30 31";
 		String set4 = 
 				" 8 9 10 11\n"
