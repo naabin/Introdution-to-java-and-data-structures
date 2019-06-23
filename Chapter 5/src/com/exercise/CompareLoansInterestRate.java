@@ -27,8 +27,5 @@ public class CompareLoansInterestRate {
 			minInterestRate+=0.25;
 		}
 		input.close();
-		
-		
 	}
-
 }
