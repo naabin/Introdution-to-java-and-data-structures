@@ -3,7 +3,7 @@ package com.exercise;
 public class Fan {
 	final private static int SLOW = 1;
 	final private static int  MEDIUM = 2;
-	final private static int  FAST  = 3;
+//	final private static int  FAST  = 3;
 	
 	private int speed;
 	private boolean on;
@@ -48,14 +48,14 @@ public class Fan {
 	public void setColor(String color) {
 		this.color = color;
 	}
-	
+	@Override
 	public String toString() {
 		String message = "";
 		if(!on) {
 			message = "Fan is off, it's color is " + color.toUpperCase() + " and it's radius is " + radius; 
 		}
 		else {
-			message = "\nFan speed: " + speed + "\nColor: " + color.toUpperCase() + "\nRadius: " + radius;
+			message = "Fan speed: " + speed + "\nColor: " + color.toUpperCase() + "\nRadius: " + radius;
 		}
 		return message;
 		
