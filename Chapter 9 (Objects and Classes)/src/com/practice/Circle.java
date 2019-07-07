@@ -2,7 +2,7 @@ package com.practice;
 
 public class Circle {
 	
-	double radius;
+	private double radius;
 	
 	public Circle() {
 		radius = 1;
@@ -26,6 +26,11 @@ public class Circle {
 	
 	double getPerimiter() {
 		return 2 * radius * Math.PI;
+	}
+	
+	public static void main(String[] args) {
+		Circle circle = new Circle();
+		System.out.println(circle.radius);
 	}
 	
 }

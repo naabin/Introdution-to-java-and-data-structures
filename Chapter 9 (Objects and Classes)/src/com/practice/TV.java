@@ -60,7 +60,6 @@ public class TV {
 		tv1.turnOn();
 		tv1.setChannel(30);
 		tv1.setVolume(5);
-		
 		TV tv2 = new TV();
 		tv2.turnOn();
 		tv2.channelUp();
