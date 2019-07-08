@@ -55,5 +55,8 @@ public class BMI {
 	public double getHeight() {
 		return height;
 	}
+	public static void main(String[] args) {
+		
+	}
 
 }
