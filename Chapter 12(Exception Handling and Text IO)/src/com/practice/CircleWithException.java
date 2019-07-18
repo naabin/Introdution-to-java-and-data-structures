@@ -39,6 +39,9 @@ public class CircleWithException {
 			CircleWithException c1 = new CircleWithException(5);
 			CircleWithException c2 = new CircleWithException(-5);
 			CircleWithException c3 = new CircleWithException(0);
+			System.out.println(c1.toString());
+			System.out.println(c2.toString());
+			System.out.println(c3.toString());
 		}
 		catch(IllegalArgumentException ex) {
 			ex.printStackTrace();
