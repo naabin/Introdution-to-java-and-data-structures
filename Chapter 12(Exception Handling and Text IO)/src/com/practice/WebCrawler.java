@@ -45,12 +45,12 @@ public class WebCrawler {
 		int current = 0;
 		while(input.hasNext()) {
 			String line = input.nextLine();
-			current = line.indexOf("https:", current);
+			current = line.indexOf("http:", current);
 			while(current > 0) {
 				int endIndex = line.indexOf("\"",current);
 				if(endIndex > 0) {
 					list.add(line.substring(current, endIndex));
-					current  = line.indexOf("https:", endIndex);
+					current  = line.indexOf("http:", endIndex);
 				}
 				else {
 					current -= 1;

@@ -10,8 +10,9 @@ public class ReadFileFromURL {
 
 	public static void main(String[] args) {
 		System.out.print("Enter a url: ");
-		String URLString = new Scanner(System.in).next();
-
+		Scanner scanner1 = new Scanner(System.in);
+		String URLString = scanner1.next();
+		
 		URL url;
 		try {
 			url = new URL(URLString);
@@ -28,7 +29,8 @@ public class ReadFileFromURL {
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
-
+		scanner1.close();
+		
 	}
 
 }
