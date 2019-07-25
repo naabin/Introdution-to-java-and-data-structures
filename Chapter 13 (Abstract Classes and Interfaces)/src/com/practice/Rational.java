@@ -24,7 +24,7 @@ public class Rational extends Number implements Comparable<Rational> {
 		this.numerator = (denominator > 0 ? 1: -1) * numerator/gcd;
 		this.denominator = Math.abs(denominator)/gcd;
 	}
-	public static long  gcd(long n, long d) {
+	private static long  gcd(long n, long d) {
 		long n1 = Math.abs(n);
 		long n2 = Math.abs(d);
 		int gcd = 1;
