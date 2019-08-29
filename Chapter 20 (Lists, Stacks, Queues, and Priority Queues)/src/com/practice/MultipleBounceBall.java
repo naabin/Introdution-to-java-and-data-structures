@@ -4,7 +4,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.beans.property.DoubleProperty;
-import javafx.event.EventHandler;
+
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
