@@ -94,10 +94,12 @@ public class MultipleBounceBall extends Application {
 			animation.pause();
 		}
 		
+		@SuppressWarnings("unused")
 		public void increaseSpeed() {
 			animation.setRate(animation.getRate() + 0.1);
 		}
 		
+		@SuppressWarnings("unused")
 		public void decreaseSpeed() {
 			animation.setRate(animation.getRate() > 0 ? animation.getRate() - 0.1 : 0);
 		}
