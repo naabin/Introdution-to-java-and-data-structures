@@ -1,5 +1,6 @@
 package com.exercise;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -67,13 +68,14 @@ public class StoreNumbers extends Application {
 	}
 	public void add() {
 		String text = this.textBox.getText().replace(" ", "");
+		text.trim();
 		System.out.println(text);
-		String[] splitStrings = text.split("");
-		System.out.println(splitStrings.length);
-		System.out.println(splitStrings.toString());
-		for(int i = 0, length = splitStrings.length; i < length; i++) {
-			System.out.println(splitStrings[i]);
-			this.numbers.add(Integer.parseInt(splitStrings[i]));
+		List<String> splitStrings = Arrays.asList(text);
+		System.out.println(splitStrings.size());
+		System.out.println(splitStrings.get(0));
+		for(int i = 0, length = splitStrings.size(); i < length; i++) {
+			System.out.println(splitStrings.get(i));
+			this.numbers.add(Integer.parseInt(splitStrings.get(i)));
 		}
 
 		this.showTextBox.setText(String.valueOf(this.numbers.toString()));
