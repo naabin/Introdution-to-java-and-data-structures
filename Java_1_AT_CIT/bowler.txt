@@ -1,0 +1,4 @@
+Amy Aardvark;200,220,240
+Betty Buzzard;0,0,0
+Cherrie CuttleFish;100,200,300
+Daisy Dingo;100,100,100

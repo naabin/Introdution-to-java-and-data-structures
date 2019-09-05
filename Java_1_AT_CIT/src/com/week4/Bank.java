@@ -40,7 +40,6 @@ public class Bank {
 	}
 	
 	public static void main(String[] args) {
-		
 		Bank bank = new Bank();
 		
 		BankAccount account = new BankAccount("1234", "Peter");

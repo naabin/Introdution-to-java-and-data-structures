@@ -1,0 +1,5 @@
+Thu Sep 05 22:08:45 AEST 2019
+Amy Aardvark,220.0
+Betty Buzzard,0.0
+Cherrie CuttleFish,200.0
+Daisy Dingo,100.0
