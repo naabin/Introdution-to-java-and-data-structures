@@ -5,27 +5,35 @@ import java.util.Scanner;
 public class StaticInitializer {
 
 	private static  int B = variableInitializer();
-	private static  int H = variableInitializer();
+	private static  int H = variableInitializer2();
 	private static  boolean flag = true;
 	
+	
 	public static int variableInitializer() {
-		System.out.print("Enter a num: ");
 		Scanner in = new Scanner(System.in);
-		int num = 0;
+		int num = in.nextInt();
 		try {
-			int nextInt = in.nextInt();
-			if(nextInt < 0) {
-				throw new Exception("Breadth and height must be positive");
+			if(num < 0) {
+				throw new Exception("Breadth and heigth must be positive.");
 			}
-			else {
-				num = nextInt;
-			}
-			
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e);
 		}
 		return num;
 	}
+	public static int variableInitializer2() {
+		Scanner in = new Scanner(System.in);
+		int num = in.nextInt();
+		try {
+			if(num < 0) {
+				throw new Exception("Breadth and heigth must be positive.");
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return num;
+	}
+	
 	
 	public static void main(String[] args){
 			if(flag){
@@ -33,6 +41,6 @@ public class StaticInitializer {
 				System.out.print(area);
 			}
 			
-		}//end of mai
+		}
 
 }
