@@ -1,0 +1,7 @@
+Amy Aardvark;20,20,20,40
+Betty Buzzard;3,2,1,0
+Cherrie Cuttlefish;10,10,10,20
+Daisy Dingo;15,16,17,25
+Emily Eel;18,19,20,28
+Fiona Fish;15,16,17,32
+Gretta Gorilla;18,18,20,29

@@ -1,0 +1,8 @@
+Report for Betty Smith dated Sun Sep 08 13:48:01 AEST 2019
+Amy Aardvark,Distinction
+Betty Buzzard,Fail
+Cherrie Cuttlefish,Pass
+Daisy Dingo,Pass
+Emily Eel,Distinction
+Fiona Fish,Credit
+Gretta Gorilla,Distinction
