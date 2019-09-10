@@ -2,7 +2,6 @@ package com.practice;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
-import java.util.Locale;
 
 
 public class DateAndTime {

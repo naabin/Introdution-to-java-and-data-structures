@@ -4,35 +4,21 @@ import java.util.Scanner;
 
 public class StaticInitializer {
 
-	private static  int B = variableInitializer();
-	private static  int H = variableInitializer2();
+	private static  int B;
+	private static  int H;
 	private static  boolean flag = true;
 	
-	
-	public static int variableInitializer() {
+	static {
 		Scanner in = new Scanner(System.in);
-		int num = in.nextInt();
-		try {
-			if(num < 0) {
-				throw new Exception("Breadth and heigth must be positive.");
-			}
-		} catch (Exception e) {
-			System.out.println(e);
+		B = in.nextInt();
+		H = in.nextInt();
+		in.close();
+		if(B < 0 || H < 0) {
+			System.out.println("java.lang.Exception: Breadth and height must be positive.");
 		}
-		return num;
+		
 	}
-	public static int variableInitializer2() {
-		Scanner in = new Scanner(System.in);
-		int num = in.nextInt();
-		try {
-			if(num < 0) {
-				throw new Exception("Breadth and heigth must be positive.");
-			}
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		return num;
-	}
+
 	
 	
 	public static void main(String[] args){
