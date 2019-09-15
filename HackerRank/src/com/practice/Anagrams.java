@@ -14,8 +14,16 @@ public class Anagrams {
 		String b = in.next();
 		
 		in.close();
+		boolean ret = false;
+		String w1 = sortedWord(a);
+		String w2 = sortedWord(b);
+		if(w1.length() != w2.length()) {
+			ret = false;
+		}
+		if(w1.equals(w2)) {
+			ret = true;
+		}
 		
-		boolean ret = isAnagram(a, b);
 		System.out.println(ret ? "Anagrams" : "Not Anagrams");
 		System.out.println(sortedWord(a));
 		System.out.println(sortedWord(b));
