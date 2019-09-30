@@ -2,8 +2,9 @@ package com.week8;
 
 import java.util.ArrayList;
 
-public class Club {
+public class Club{
 	private ArrayList<Member> members = new ArrayList<Member>();
+
 	
 	private String spacer = "\n****************\n";
 	
