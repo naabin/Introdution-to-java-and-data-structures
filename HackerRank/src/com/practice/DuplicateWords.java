@@ -5,6 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DuplicateWords {
+
 	
 	public static void main(String[] args) {
 		String regex = "\\b(\\w+)(\\b\\W+\\b\\1\\b)*";
