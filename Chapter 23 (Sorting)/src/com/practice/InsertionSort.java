@@ -23,6 +23,8 @@ public class InsertionSort {
 		System.out.println();
 		insertionSort(list);
 		
+		in.close();
+		
 	}
 	
 	public static void insertionSort(int[] list) {
