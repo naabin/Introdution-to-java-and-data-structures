@@ -110,6 +110,7 @@ public class MyArrayList<E> implements MyList<E> {
 			data[j] = data[j + 1];
 		}
 		data[size - 1] = null; // This element is now null
+		size--;
 		return e;
 	}
 
