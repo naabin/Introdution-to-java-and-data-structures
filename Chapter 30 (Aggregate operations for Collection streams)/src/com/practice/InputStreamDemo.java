@@ -26,6 +26,7 @@ public class InputStreamDemo {
 		System.out.println("Total character count for all names is " + Stream.of(names).mapToInt(e -> e.length()).sum());
 		
 		System.out.println("The number of digits in array values is " + Stream.of(values).map(e -> e + "").mapToInt(e -> e.length()).sum());
+		
 	}
 
 }
