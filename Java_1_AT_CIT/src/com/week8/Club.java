@@ -34,7 +34,7 @@ public class Club{
 	public boolean findMember(String name) {
 		boolean found  = false;
 		for(Member member: members) {
-			if(member.getFullName() == name) {
+			if(name.equals(member.getFullName())) {
 				found = true;
 			}
 		}
