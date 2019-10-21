@@ -29,7 +29,7 @@ public class TaskThreadDemo {
 		
 	}
 
-	private class PrintChar implements Runnable {
+	public class PrintChar implements Runnable {
 
 		private char charToPrint;
 		private int times;
@@ -50,7 +50,7 @@ public class TaskThreadDemo {
 
 	}
 	
-	private class PrintNum implements Runnable {
+	public class PrintNum implements Runnable {
 		
 		private int lastNum;
 		
