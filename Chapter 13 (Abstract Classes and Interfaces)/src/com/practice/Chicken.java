@@ -1,5 +1,4 @@
 package com.practice;
-
 public class Chicken extends Animal implements Edible {
 
 	@Override
