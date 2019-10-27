@@ -122,53 +122,53 @@ public class TicTacToeServer extends Application implements TicTacToeConstants {
 				// Write anything to notify player 1 to start
 				// This is just to let player 1 to know to start
 
-				this.toPlayer1.writeInt(1);
+				toPlayer1.writeInt(1);
 
 				// Continuously serve the players and determine and report
 				// the game status to the players
 
 				while (true) {
 					// Receive a move from player 1
-					int row = this.fromPlayer1.readInt();
-					int column = this.fromPlayer1.readInt();
+					int row = fromPlayer1.readInt();
+					int column = fromPlayer1.readInt();
 
 					this.cell[row][column] = 'X';
 
 					// Check if Player 1 wins
 					if (isWon('X')) {
-						this.toPlayer1.writeInt(PLAYER1_WON);
-						this.toPlayer2.writeInt(PLAYER1_WON);
-						sendMove(this.toPlayer2, row, column);
+						toPlayer1.writeInt(PLAYER1_WON);
+						toPlayer2.writeInt(PLAYER1_WON);
+						sendMove(toPlayer2, row, column);
 						break;
 					} else if (isFull()) {
-						this.toPlayer1.writeInt(DRAW);
-						this.toPlayer2.writeInt(DRAW);
-						sendMove(this.toPlayer2, row, column);
+						toPlayer1.writeInt(DRAW);
+						toPlayer2.writeInt(DRAW);
+						sendMove(toPlayer2, row, column);
 						break;
 					} else {
 						// Notify player 2 to take the turn
-						this.toPlayer2.writeInt(CONTINUE);
+						toPlayer2.writeInt(CONTINUE);
 						// Send player 1's selected row and column to player 2
-						sendMove(this.toPlayer2, row, column);
+						sendMove(toPlayer2, row, column);
 
 					}
 					// receive a move from player 2
-					row = this.fromPlayer2.readInt();
-					column = this.fromPlayer2.readInt();
+					row = fromPlayer2.readInt();
+					column = fromPlayer2.readInt();
 					cell[row][column] = 'O';
 
 					// Check if Player 2 wins
 					if (isWon('O')) {
-						this.toPlayer1.writeInt(PLAYER2_WON);
-						this.toPlayer2.writeInt(PLAYER2_WON);
+						toPlayer1.writeInt(PLAYER2_WON);
+						toPlayer2.writeInt(PLAYER2_WON);
 						sendMove(toPlayer1, row, column);
 						break;
 					} else {
 						// Notify player 1 to take the turn
-						this.toPlayer1.writeInt(CONTINUE);
+						toPlayer1.writeInt(CONTINUE);
 
 						// Send player 2's selected row and column to player 1
-						sendMove(this.toPlayer1, row, column);
+						sendMove(toPlayer1, row, column);
 					}
 				}
 
@@ -239,6 +239,11 @@ public class TicTacToeServer extends Application implements TicTacToeConstants {
 			out.writeInt(column);
 		}
 
+	}
+	
+	public static void main(String[] args) {
+		Application.launch(args);
+		
 	}
 
 }
