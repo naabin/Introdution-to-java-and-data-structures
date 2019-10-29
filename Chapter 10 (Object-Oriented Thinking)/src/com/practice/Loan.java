@@ -1,8 +1,14 @@
 package com.practice;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Loan {
+public class Loan implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3629574767394217670L;
+
 	private double annualInterestRate;
 	private int numberOfYears;
 	private double loanAmount;

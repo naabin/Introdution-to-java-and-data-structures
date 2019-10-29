@@ -92,11 +92,12 @@ public class ClientLoan extends Application {
 					toServer.writeObject(loan);
 					
 					
-					Loan calculatedLoan = (Loan)fromServer.readObject();
+					Object object = fromServer.readObject();
+					Loan calculatedLoan = (Loan) object;
 					serverResponse.setText("Annual Interest Rate: " + calculatedLoan.getAnnualInterestRate() + "\n");
-					serverResponse.setText("Number of years: " + calculatedLoan.getNumberOfYears());
-					serverResponse.setText("Monthly payment: " + calculatedLoan.getMonthlyPayment());
-					serverResponse.setText("Total Payment " + calculatedLoan.getTotalPayment());
+					serverResponse.setText("Number of years: " + calculatedLoan.getNumberOfYears() + "\n");
+					serverResponse.setText("Monthly payment: " + calculatedLoan.getMonthlyPayment() + "\n" );
+					serverResponse.setText("Total Payment " + calculatedLoan.getTotalPayment() +  "\n" );
 					
 					
 					annualInterest.setText("");

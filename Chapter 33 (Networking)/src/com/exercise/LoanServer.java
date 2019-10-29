@@ -34,7 +34,7 @@ public class LoanServer extends Application {
 		new Thread(() ->  {
 			try {
 				ServerSocket serverSocket = new ServerSocket(8000);
-				ta.appendText("Server started ad " + new Date() + "\n");
+				Platform.runLater(() ->ta.appendText("Server started ad " + new Date() + "\n"));
 				
 				while(true) {
 					//Listen for a new connection request
@@ -85,10 +85,12 @@ public class LoanServer extends Application {
 				//Continuously serve the client
 				while(true) {
 					//Receive input from the client
-					Loan loan = (Loan) inputFromClient.readObject();
+					Object object = inputFromClient.readObject();
 					
 					//Send back the loaded loan to the client
-					outputToClient.writeObject(loan);
+					outputToClient.writeObject(object);
+					
+					Loan loan = (Loan)(object);
 					
 					Platform.runLater(() -> {
 						ta.appendText("Annual Interest: " + loan.getAnnualInterestRate() + "\n");
