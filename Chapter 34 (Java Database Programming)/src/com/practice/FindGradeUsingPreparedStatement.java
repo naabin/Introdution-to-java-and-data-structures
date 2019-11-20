@@ -69,7 +69,7 @@ public class FindGradeUsingPreparedStatement extends Application {
 		System.out.println("Driver loaded");
 		
 		//Establish connection
-		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/javabook?serverTimezone=UTC");
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/javabook?serverTimezone=UTC", "hbstudent", "hbstudent");
 		System.out.println("Database connected");
 		
 		
