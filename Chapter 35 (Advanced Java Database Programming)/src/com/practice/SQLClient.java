@@ -47,14 +47,14 @@ public class SQLClient extends Application {
 	private Button btExecuteSQL = new Button("Execute SQL command");
 	private Button btClearSQLCommand = new Button("Clear");
 	private Button btConnectDB = new Button("Connect to the database");
-	private Button btClearSQLResult = new Button("Clear Resutl");
+	private Button btClearSQLResult = new Button("Clear Result");
 	private Label lblConnectionStatus = new Label("No connection now");
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
 		this.cboURL.getItems().addAll(FXCollections.observableArrayList(
-				"jdbc:mysql://localhost/javabook",
+				"jdbc:mysql://localhost/javabook?serverTimezone=UTC",
 				"jdbc:mysql://localhost/localdb",
 				"jdbc:odbc:exampleMDBDatasource",
 				"jdbc:oracle:thin:@liang.armstrong.edu:1521:orcl"
@@ -62,12 +62,20 @@ public class SQLClient extends Application {
 		
 		this.cboURL.getSelectionModel().selectFirst();
 		
+		this.cboDriver.getItems().addAll(FXCollections.observableArrayList(
+				"com.mysql.cj.jdbc.Driver",
+				"sun.jdbc.odbc.dbc0dbcDriver",
+				"oracle.jdbc.driver.OracleDriver"
+				));
+		
+		this.cboDriver.getSelectionModel().selectFirst();
+		
 		//Create UI for connecting to the database
 		GridPane gridPane = new GridPane();
 		gridPane.add(this.cboURL, 1, 0);
 		gridPane.add(this.cboDriver, 1, 1);
 		gridPane.add(this.username, 1, 2);
-		gridPane.add(this.password, 1, 2);
+		gridPane.add(this.password, 1, 3);
 		gridPane.add(new Label("JDBC Driver"), 0, 0);
 		gridPane.add(new Label("Database URL"), 0, 1);
 		gridPane.add(new Label("Username"), 0, 2);
@@ -78,10 +86,10 @@ public class SQLClient extends Application {
 		hBox.getChildren().addAll(this.lblConnectionStatus, this.btConnectDB);
 		hBox.setAlignment(Pos.CENTER_RIGHT);
 		
-		VBox vBox = new VBox();
+		VBox vBox = new VBox(5);
 		vBox.getChildren().addAll(new Label("Enter Database Information"), gridPane, hBox);
 		
-		gridPane.setStyle("-fx-border-color: black");
+		gridPane.setStyle("-fx-border-color: black;");
 		
 		HBox hBoxSQLCommand = new HBox(5);
 		
@@ -94,7 +102,7 @@ public class SQLClient extends Application {
 		
 		borderPaneSqlCommand.setCenter(new ScrollPane(this.taSQLCommand));
 		
-		borderPaneSqlCommand.setBottom(hBox);
+		borderPaneSqlCommand.setBottom(hBoxSQLCommand);
 		
 		HBox hBoxConnectionCommand = new HBox(10);
 		
@@ -113,9 +121,10 @@ public class SQLClient extends Application {
 		
 		
 		//Create a scene and place it in the stage
-		Scene scene = new Scene(borderPane, 670, 400);
+		Scene scene = new Scene(borderPane, 1000, 400);
 		primaryStage.setTitle("SQLClient");
 		primaryStage.setScene(scene);
+		primaryStage.show();
 		
 		this.btConnectDB.setOnAction(e -> connectToDB());
 		this.btExecuteSQL.setOnAction(e -> executeSQL());
@@ -139,6 +148,8 @@ public class SQLClient extends Application {
 			Class.forName(driver);
 			this.connection = DriverManager.getConnection(url, username, password);
 			this.lblConnectionStatus.setText("Connected to " + url);
+			this.username.setText("");
+			this.password.setText("");
 		} catch (ClassNotFoundException e) {
 			
 			e.printStackTrace();
