@@ -48,7 +48,7 @@ public class CopyFileToTable extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		this.cboURL.getItems().addAll(FXCollections.observableArrayList(
-					"jdbc:mysql://localhost/javabook?serverTime=UTC",
+					"jdbc:mysql://localhost/javabook?serverTimezone=UTC",
 					"jdbc:mysql://liang.armstrong.edu/javabook",
 					"jdbc:odbc:exampleMDBDataSource",
 					"jdbc:oracle:thin:@laing.armstrong.edu:1521:orcl"
@@ -231,6 +231,10 @@ public class CopyFileToTable extends Application {
 			}
 		}
 		
+	}
+	
+	public static void main(String[] args) {
+		Application.launch(args);
 	}
 
 }
