@@ -1,5 +1,6 @@
-package com.exrercise.chapter10;
+package com.exercise.chapter11;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Account {
@@ -8,6 +9,7 @@ public class Account {
 	private double balance;
 	private double annualInterestRate;
 	private Date dateCreated;
+	private ArrayList<Transaction> transactions = new ArrayList<>();
 
 	public Account() {
 
@@ -48,6 +50,7 @@ public class Account {
 	public Date getDateCreated() {
 		return dateCreated;
 	}
+	
 	public double monthlyInterest() {
 		return getBalance() * getMonthlyInterestRate();
 	}
@@ -57,24 +60,40 @@ public class Account {
 		return monthlyInterest;
 	}
 
-	public void withdraw(double balance) {
+	public void withdraw(double balance, String description) {
 		if (getBalance() > balance && balance > 0) {
 			this.balance -= balance;
+			Transaction transaction = new Transaction('W', balance, this.balance, description);
+			this.transactions.add(transaction);
 		}
 	}
 
-	public void deposit(double balance) {
+	public void deposit(double balance, String description) {
 		if (balance > 0) {
 			this.balance += balance;
+			Transaction transaction = new Transaction('D', balance, this.balance, description);
+			this.transactions.add(transaction);
 		}
 	}
+	
+	public void printStatements() {
+		System.out.println("W = Withdraw\nD  = Deposit");
+		System.out.println("Date\t\t\tType\t\tAmount\t\tBalance");
+		for(Transaction transaction: transactions) {
+			System.out.println(transaction.getDate()+
+					"\t\t"+transaction.getType()+"=>"+transaction.getDescription()+
+					"\t\t"+transaction.getAmount()+"\t\t"+transaction.getBalance());
+		}
+		System.out.println("----------------------------------------------------------------");
+		System.out.println("Account balance is: " + this.balance);
+	}
+
 	// Program testing
 	public static void main(String[] args) {
-		Account account = new Account(1, 100);
+		Account account = new Account(1122, 20000);
 		account.setAnnualInterestRate(4.5);
-		account.withdraw(2500);
-		account.deposit(3000);
-		System.out.println(account.monthlyInterest());
-		System.out.println(account.getDateCreated());
+		account.withdraw(2500, "College Fee");
+		account.deposit(3000, "Weekly Pay");
+		account.printStatements();
 	}
 }
