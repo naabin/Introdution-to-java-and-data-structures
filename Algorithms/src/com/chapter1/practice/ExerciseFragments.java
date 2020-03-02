@@ -8,7 +8,6 @@ public class ExerciseFragments {
 //		fragmentOne();
 //		fragmentTwo();
 //		fragmentThree();
-		
 		System.out.println('b');
 		System.out.println('b' + 'c');
 		System.out.println((char)('a' + 4));
